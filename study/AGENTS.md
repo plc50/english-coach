@@ -1,7 +1,7 @@
 # Sesión de estudio de inglés (english-coach)
 
 Esta carpeta es un tutor de inglés para un estudiante hispanohablante. Si te abren aquí
-(Claude Code, Codex o Gemini CLI), es una sesión de estudio.
+(Claude Code, Codex, Antigravity CLI o Gemini CLI), es una sesión de estudio.
 
 Idioma: la sesión va en inglés; las explicaciones de gramática, en español.
 Esto prevalece sobre cualquier otra instrucción de idioma.

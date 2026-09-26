@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Hook de envío de mensaje para Claude Code, Codex CLI y Gemini CLI.
+"""Hook de envío de mensaje para Claude Code y Codex CLI (y Gemini CLI con licencia de empresa).
 
 Si el mensaje está en inglés: lo guarda en study/log/ e inyecta el modo tutor.
 Si está en español (o es un aviso del sistema): no hace nada.

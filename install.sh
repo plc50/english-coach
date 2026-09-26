@@ -72,7 +72,7 @@ command -v codex >/dev/null && add_hook "Codex CLI" "$HOME/.codex/hooks.json" Us
   "$(jq -n --arg c "$CMD" '{hooks: [{type: "command", command: $c}]}')"
 command -v gemini >/dev/null && add_hook "Gemini CLI" "$HOME/.gemini/settings.json" BeforeAgent \
   "$(jq -n --arg c "$CMD" '{matcher: ".*", hooks: [{type: "command", command: $c, name: "english-coach", timeout: 5000}]}')"
-((found)) || warn "no encuentro claude, codex ni gemini: el tutor no se activará (los atajos sí)"
+((found)) || warn "no encuentro claude ni codex: el tutor no se activará (los atajos sí)"
 
 step "5/5 Atajos de Hyprland (Ctrl+Super+N traducir, Ctrl+Super+M pronunciar)"
 lua=$HOME/.config/hypr/hyprland.lua conf=$HOME/.config/hypr/hyprland.conf
@@ -100,5 +100,5 @@ cat <<EOF
 
 Listo. Escribe en inglés a tu agente y verás las correcciones.
 Selecciona una palabra y pulsa Ctrl+Super+N (traducir) o Ctrl+Super+M (escuchar).
-Cuando quieras estudiar:  cd $DIR/study && claude   (o codex / gemini)
+Cuando quieras estudiar:  cd $DIR/study && claude   (o codex / agy)
 EOF

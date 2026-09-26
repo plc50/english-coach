@@ -39,7 +39,7 @@ Seleccionas "got the hang of" en cualquier ventana → Ctrl+Super+N
 |---|---|---|
 | **Traducir** `Ctrl+Super+N` | Seleccionas una palabra o *phrasal verb* en **cualquier aplicación** → notificación con traducción y significado | Offline, 0 tokens, ~0,05 s |
 | **Pronunciar** `Ctrl+Super+M` | Seleccionas texto en **cualquier aplicación** → lo lee una voz neuronal | Offline, 0 tokens |
-| **Tutor pasivo** | Escribes en inglés a Claude Code, Codex o Gemini CLI → te corrige antes de responder y te enseña 2-3 expresiones B2/C1 | Solo se activa en inglés. En español no hace nada |
+| **Tutor pasivo** | Escribes en inglés a Claude Code o Codex → te corrige antes de responder y te enseña 2-3 expresiones B2/C1 | Solo se activa en inglés. En español no hace nada |
 | **Sesión de estudio** | Cuando tú quieras: ejercicios hechos con **tus** errores y **tus** palabras buscadas | Lo que dure la sesión |
 
 Funciona en todo el sistema porque no depende de ninguna aplicación: lee la selección de
@@ -49,8 +49,9 @@ Todo se guarda en local (`study/`). Nada sale de tu máquina salvo lo que ya le 
 
 ## Quick start
 
-Necesitas Hyprland y al menos uno de: [Claude Code](https://claude.com/claude-code),
-[Codex CLI](https://github.com/openai/codex) o [Gemini CLI](https://github.com/google-gemini/gemini-cli).
+Necesitas Hyprland. Para el tutor, [Claude Code](https://claude.com/claude-code) o
+[Codex CLI](https://github.com/openai/codex); la sesión de estudio funciona también con
+[Antigravity CLI](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/) (`agy`).
 
 ```bash
 git clone https://github.com/plc50/english-coach.git ~/english-coach
@@ -71,7 +72,7 @@ El instalador:
 2. **Leyendo docs:** selecciona lo que no entiendas → `Ctrl+Super+N`. ¿Cómo se pronuncia? → `Ctrl+Super+M`.
 3. **Cuando te apetezca estudiar:**
    ```bash
-   cd ~/english-coach/study && claude   # o codex / gemini
+   cd ~/english-coach/study && claude   # o codex / agy
    ```
    La primera vez te pregunta tu nivel y tu objetivo. Después analiza tus mensajes, te pone
    ejercicios y actualiza `study/REPASO.md`, que es lo único que tienes que leer tú.
@@ -92,14 +93,18 @@ sesión de estudio ──► lee log/ + lookups.jsonl ──► ejercicios ─�
 
 - **Detección de idioma:** cuenta palabras que solo existen en inglés o en español. Sin
   modelos ni red, en milisegundos. Ignora código, rutas y URLs.
-- **Un solo script para los tres agentes:** Claude Code y Codex (`UserPromptSubmit`) y Gemini
-  CLI (`BeforeAgent`) mandan el mismo `prompt` y aceptan el mismo `additionalContext`.
+- **Un solo script para todos los agentes:** Claude Code y Codex (`UserPromptSubmit`) mandan el
+  mismo `prompt` y aceptan el mismo `additionalContext`. Si usas Gemini CLI con licencia de
+  empresa (`BeforeAgent`), el instalador también lo configura.
 - **Diccionario:** entiende formas conjugadas (*got the hang of* → *get the hang of*,
   *ran out of* → *run out*) y prefiere traducciones hechas por personas.
 
-¿Y Cursor o Copilot CLI? Sus hooks aún no permiten inyectar contexto al enviar el mensaje
-([Cursor](https://forum.cursor.com/t/hooks-allow-beforesubmitprompt-hook-to-inject-additional-context/150707),
-[Copilot #2652](https://github.com/github/copilot-cli/issues/2652)). Cuando lo hagan, se añaden.
+¿Y Antigravity, Cursor o Copilot CLI? Sus hooks aún no permiten inyectar el tutor según el
+mensaje: el `PreInvocation` de Antigravity CLI no recibe el texto del usuario (y en `agy` 1.2.11
+no llega a ejecutarse desde la configuración global), y los de
+[Cursor](https://forum.cursor.com/t/hooks-allow-beforesubmitprompt-hook-to-inject-additional-context/150707)
+y [Copilot](https://github.com/github/copilot-cli/issues/2652) no inyectan contexto. Cuando lo
+permitan, se añaden.
 
 ## Limitaciones
 
