@@ -1,5 +1,7 @@
 # english-coach
 
+![Selecciona texto en cualquier aplicación y pulsa Ctrl+Super+N](demo.gif)
+
 **Selecciona cualquier texto en Hyprland y tradúcelo o escúchalo con un atajo. Y si le escribes en inglés a tu agente de IA, te corrige.**
 
 El navegador, un PDF, el gestor de archivos, la terminal, tu editor… da igual la aplicación:
