@@ -1,0 +1,11 @@
+# Datos personales del estudiante
+study/log/
+study/lookups.jsonl
+study/errors.md
+study/expressions.md
+study/REPASO.md
+# Descargas del instalador
+dict.db
+dict.tmp
+voices/
+__pycache__/
