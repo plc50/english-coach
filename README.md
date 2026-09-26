@@ -1,11 +1,22 @@
 # english-coach
 
-**Aprende inglés sin sacar tiempo extra: tu agente de IA te corrige mientras trabajas.**
+**Selecciona cualquier texto en Hyprland y tradúcelo o escúchalo con un atajo. Y si le escribes en inglés a tu agente de IA, te corrige.**
 
-Lo hice para mejorar mi propio inglés. Paso muchas horas escribiendo a agentes de IA en la
-terminal, así que esas horas ya cuentan como práctica. Te corrige al momento, te enseña
-expresiones de nivel B2/C1 y, cuando te apetece, te prepara una sesión de estudio con tus
-propios errores. Si quieres integrar el inglés en tu día a día de forma pasiva, es tuyo.
+El navegador, un PDF, el gestor de archivos, la terminal, tu editor… da igual la aplicación:
+si hay texto seleccionado, `Ctrl+Super+N` te da la traducción y el significado, y
+`Ctrl+Super+M` te lo pronuncia. Offline, sin gastar tokens y al instante.
+
+Lo hice para mejorar mi propio inglés. Paso bastante tiempo en el ordenador, así que ese
+tiempo ya cuenta como práctica. Si quieres integrar el inglés en tu día a día de forma
+pasiva, es tuyo.
+
+```
+Seleccionas "got the hang of" en cualquier ventana → Ctrl+Super+N
+
+  → get the hang of
+  ES: coger el tranquillo, agarrarle la onda, cogerle el truco a
+  EN: To begin to understand or manage at a basic level
+```
 
 ```
 > i want that you explain me the code
@@ -24,10 +35,13 @@ propios errores. Si quieres integrar el inglés en tu día a día de forma pasiv
 
 | | Cuándo | Coste |
 |---|---|---|
+| **Traducir** `Ctrl+Super+N` | Seleccionas una palabra o *phrasal verb* en **cualquier aplicación** → notificación con traducción y significado | Offline, 0 tokens, ~0,05 s |
+| **Pronunciar** `Ctrl+Super+M` | Seleccionas texto en **cualquier aplicación** → lo lee una voz neuronal | Offline, 0 tokens |
 | **Tutor pasivo** | Escribes en inglés a Claude Code, Codex o Gemini CLI → te corrige antes de responder y te enseña 2-3 expresiones B2/C1 | Solo se activa en inglés. En español no hace nada |
-| **Traducir** `Ctrl+Super+N` | Seleccionas una palabra o *phrasal verb* en cualquier ventana → notificación con traducción y significado | Offline, 0 tokens, ~0,05 s |
-| **Pronunciar** `Ctrl+Super+M` | Seleccionas texto → lo lee una voz neuronal | Offline, 0 tokens |
 | **Sesión de estudio** | Cuando tú quieras: ejercicios hechos con **tus** errores y **tus** palabras buscadas | Lo que dure la sesión |
+
+Funciona en todo el sistema porque no depende de ninguna aplicación: lee la selección de
+Wayland (`wl-paste --primary`), la misma que usas al pegar con el botón central del ratón.
 
 Todo se guarda en local (`study/`). Nada sale de tu máquina salvo lo que ya le mandas a tu agente.
 
